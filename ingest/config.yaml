@@ -1,0 +1,32 @@
+tickers:
+  - SPY
+  - QQQ
+  - AAPL
+  - MSFT
+  - NVDA
+  - AMD
+  - TSLA
+  - AMZN
+  - META
+  - JPM
+
+timezone: America/New_York
+market_open: "09:30"
+market_close: "16:00"
+
+# Skip today's bars until this ET time, so the last bar is never partial
+skip_today_before: "16:15"
+
+# Yahoo serves roughly the last 7 days of 1-minute bars
+period: 7d
+interval: 1m
+
+# Relative to the repo root
+data_dir: data
+
+# Retry waits are backoff_base_s * 2^attempt (2s, 4s, 8s)
+max_retries: 3
+backoff_base_s: 2
+
+# Warn if a full trading day has fewer bars than this per ticker; will probably write logging to check anomaly later
+min_bars_warning: 300
